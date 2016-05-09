@@ -18,8 +18,12 @@
         return {
             register: function (user) {
                 return $http.post('/register',user, config);
+            },
+            setInfo: function (userInfo) {
+                $window.localStorage.setItem('user', JSON.stringify(userData.data.data.user));
+                $window.localStorage.setItem('token', JSON.stringify(userData.data.data.token));
             }
         }
     }
 
-}); //end of service
+})(); //end of service
