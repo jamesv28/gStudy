@@ -1,8 +1,10 @@
+var express = require('express');
+var router = express.Router();
+var knex = require('../db/knex');
+var helpers = require('')
 router.post('/register', function(req, res, next) {
-
     var email = req.body.email;
     var password = req.body.password;
-
     knex('users').where('email', email)
         .then(function(data) {
             if(data.length) {
@@ -17,9 +19,9 @@ router.post('/register', function(req, res, next) {
                     .insert({
                         email: email,
                         password: hashedPassword,
-                        name: name
                     })
                     .then(function(data) {
+                        console.log('here3');
                         var token = helpers.generateToken(user);
                         delete user.password;
                         res.status(200).json({
@@ -31,11 +33,15 @@ router.post('/register', function(req, res, next) {
                         });
                     })
                     .catch(function(err) {
+                        console.log('inside error', err);
                         return next(err);
                     });
             }
         })
         .catch(function(err){
+            console.log('outside error', err);
             return next(err);
         });
 });
+
+module.exports = router;

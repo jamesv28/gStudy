@@ -17,7 +17,7 @@
 
         return {
             register: function (user) {
-                return $http.post('/register',user, config);
+                return $http.post('auth/register',user, config);
             },
             setInfo: function (userInfo) {
                 $window.localStorage.setItem('user', JSON.stringify(userData.data.data.user));
