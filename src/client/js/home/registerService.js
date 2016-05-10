@@ -4,9 +4,9 @@
     angular.module('myApp')
         .service('registerService', registerService);
 
-    registerService.$inject = ['$http', '$location', '$location'];
+    registerService.$inject = ['$http', '$location', '$location','$window', '$localStorage'];
     
-    function registerService($http, $location, $window) {
+    function registerService($http, $location, $window, $localStorage) {
         var user = {};
 
         var config = {
@@ -20,8 +20,8 @@
                 return $http.post('auth/register',user, config);
             },
             setInfo: function (userInfo) {
-                $window.localStorage.setItem('user', JSON.stringify(userData.data.data.user));
-                $window.localStorage.setItem('token', JSON.stringify(userData.data.data.token));
+                $localStorage.localStorage.user = JSON.stringify(userInfo.data.data.user[0]);
+                $localStorage.localStorage.token = JSON.stringify(userInfo.data.data.token);
             }
         }
     }

@@ -22,14 +22,14 @@ router.post('/register', function(req, res, next) {
                         password: hashedPassword,
                     })
                     .then(function(data) {
-                        console.log('here3');
-                        var token = helpers.generateToken(user);
-                        delete user.password;
+                        console.log(data);
+                        var token = helpers.generateToken(data[0]);
+                        delete data.password;
                         res.status(200).json({
                             status: 'success',
                             data: {
                                 token: token,
-                                user: user
+                                user: data
                             }
                         });
                     })
