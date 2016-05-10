@@ -1,1 +1,38 @@
-<h3>new Deck</h3>
+<div class="row">
+    <div class="container">
+        <div class="col-md=-8 col-md-offset-2">
+            <h2 class="text-center">
+                Create a new Deck
+            </h2>
+            <p>Deck Info:</p>
+            <form class="" ng-submit="addDeck()">
+                <div class="form-group row">
+                    <label class="control-label col-md-2 col-sm-3">Name</label>
+                    <div class="col-md-3 col-sm-3">
+                        <input type="text" required ng-model="deck.name" placeholder="name">
+                    </div>
+                    <label for="deck.description" class="control-label col-md-3 col-sm-3">Description</label>
+                    <div class="col-md-2 col-sm-3">
+                        <textarea id="deck.description" class="from=control" required ng-model="deck.description"></textarea>
+                    </div>
+                </div>
+                <p>Cards: </p>
+                <fieldset class="col-md-6 form-group">
+                    <label for="cQuestion" class="control-label">Question</label>
+                    <input id="cQuestion" type="text" required ng-model="cards.questions" class="form-control">
+                </fieldset>
+                <fieldset class="col-md-6 form-group">
+                    <label for="cAnswer" class="control-label">Answer</label>
+                    <input id="cAnswer" type="text" class="form-control" ng-model="cards.answers">
+                </fieldset>
+                <div class="form-group">
+                    <p><i class="fa fa-plus-circle" aria-hidden="true"></i>Add another Card
+                    </p>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-info pull-right">Create Deck</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
