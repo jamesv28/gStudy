@@ -8,6 +8,14 @@ app.config(function($routeProvider, $locationProvider) {
            templateUrl: 'js/signIn/signIn.html',
            controller: 'signInCtrl'
        })
+       .when('/dashboard', {
+           templateUrl: 'js/dashboard/dashboard.html',
+           controller: 'dashboardCtrl'
+       })
+       .when('/newDeck', {
+           templateUrl: 'js/newDeck/newDeck.html',
+           controller: 'newDeckCtrl'
+       })
        .otherwise({
            templateUrl: 'js/home/home.html'
        })
