@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var knex = require('../db/knex');
-var helpers = require('')
+var helpers = require('./helpers');
+
 router.post('/register', function(req, res, next) {
     var email = req.body.email;
     var password = req.body.password;
