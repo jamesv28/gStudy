@@ -4,19 +4,19 @@
             <h2 class="text-center">
                 Create a new Deck
             </h2>
-            <p>Deck Info:</p>
-            <form class="" ng-submit="addDeck()">
-                <div class="form-group row">
-                    <label class="control-label col-md-2 col-sm-3">Name</label>
-                    <div class="col-md-3 col-sm-3">
-                        <input type="text" required ng-model="deck.name" placeholder="name">
-                    </div>
-                    <label for="deck.description" class="control-label col-md-3 col-sm-3">Description</label>
-                    <div class="col-md-2 col-sm-3">
-                        <textarea id="deck.description" class="from=control" required ng-model="deck.description"></textarea>
-                    </div>
+            <h4>Deck Info:</h4>
+            <form  ng-submit="addDeck()">
+                <fieldset class="form-group col-md-6">
+                    <label for="deckQuestion" class="control-label">Name:</label>
+                    <input class="form-control" id="deckQuestion" type="text" required ng-model="deck.name" placeholder="name">
+                </fieldset>
+                <fieldset class="form-group col-md-6">
+                    <label for="deckQuestion" class="control-label">Description:</label>
+                    <textarea class="form-control" rows="4" id="deckDescription"  required ng-model="decks.description" placeholder="Description of the deck"></textarea>
+                </fieldset>
+                <div class="form-group">
+                    <h4>Cards: </h4>
                 </div>
-                <p>Cards: </p>
                 <fieldset class="col-md-6 form-group">
                     <label for="cQuestion" class="control-label">Question</label>
                     <input id="cQuestion" type="text" required ng-model="cards.questions" class="form-control">
