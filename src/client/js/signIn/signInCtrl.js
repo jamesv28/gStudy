@@ -1,24 +1,21 @@
 (function () {
     'use strict';
-    
-   
 
     angular.module('myApp')
         .controller('signInCtrl', signInCtrl);
     
-    signInCtrl.$inject = ['$scope','$location','$window','signInService'];
+    signInCtrl.$inject = ['$scope','$location','signInService'];
 
-    function signInCtrl($scope,$location,$window, signInService) {
+    function signInCtrl($scope,$location, signInService) {
 
         $scope.user = {};
 
         $scope.logIn = function () {
-          signInService.logIn(this.user)
+          signInService.login($scope.user)
               .then(function (data) {
-                  if(data.status === 200) {
-                      signInService.setInfo(data);
-                      $location.path('/dashboard');
-                  }
+                  console.log('data', data);
+                  signInService.setInfo(data);
+                  $location.path('/dashboard');
               }).catch(function (err) {
                 console.log(err);
           })
